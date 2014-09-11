@@ -11,3 +11,34 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+if [[ "$OSTYPE" == darwin* ]]; then
+    # On Mac, I use MacVim's non-GUI version
+    alias vim="/usr/local/bin/mvim -v"
+    alias v="/usr/local/bin/mvim -v"
+    alias g="open"
+    alias pylab="ipython --pylab=osx"
+fi
+# Tmux stuff
+alias ta="tmux a -t"
+alias tn="tmux new -s"
+### Aliases
+
+# Platform-specific stuff
+platform=$(uname)
+
+alias ipynb="ipython notebook --profile=nbserver"
+alias tl="tmux list-sessions"
+if [[ $platform == 'Linux' ]]; then
+    alias open=xdg-open
+    alias g=xdg-open
+    # ipython stuff
+    alias pylab="ipython --pylab=tk"
+    # Tmux stuff
+    alias tmux="TERM=xterm-256color /usr/bin/tmux"
+    alias ta="TERM=xterm-256color tmux a -t"
+    alias tn="TERM=xterm-256color tmux new -s"
+else
+    alias ta="tmux a -t"
+    alias tn="tmux new -s"
+fi
