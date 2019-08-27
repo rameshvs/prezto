@@ -14,10 +14,8 @@ fi
 
 if [[ "$OSTYPE" == darwin* ]]; then
     # On Mac, I use MacVim's non-GUI version
-    alias vim="/usr/local/bin/mvim -v"
-    alias v="/usr/local/bin/mvim -v"
     alias g="open"
-    alias pylab="ipython --pylab=osx"
+    alias pylab="ipython --pylab=tk"
 fi
 # Tmux stuff
 alias ta="tmux a -t"
@@ -42,3 +40,24 @@ else
     alias ta="tmux a -t"
     alias tn="tmux new -s"
 fi
+#
+# added by Anaconda3 2018.12 installer
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/Users/rameshvs/anaconda3/bin/conda' shell.zsh hook 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    \eval "$__conda_setup"
+else
+    if [ -f "/Users/rameshvs/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/rameshvs/anaconda3/etc/profile.d/conda.sh"
+    else
+        \export PATH="/Users/rameshvs/anaconda3/bin:$PATH"
+    fi
+fi
+CONDA_CHANGEPS1=false # conda activate base
+unset __conda_setup
+# <<< conda init <<<
+export PATH=/Users/rameshvs/.local/openjdk/jdk-11.0.2+9/Contents/Home/bin:$PATH
+export PATH=/Library/TeX/texbin:$PATH
+export JAVA_HOME=/Users/rameshvs/.local/openjdk/jdk-11.0.2+9/Contents/Home:$JAVA_HOME
+export PATH="/Users/rameshvs/anaconda3/bin:$PATH"
